@@ -17,7 +17,9 @@ async function copyFiles(pathToFolder, dist) {
         path.join(dist, files[i]),
       );
     } else if (stats.isDirectory()) {
-      await copyFiles(`${pathToFolder}//${files[i]}`, `${dist}//${files[i]}`);
+      const pathToFiles = path.join(pathToFolder, files[i]);
+      const pathToDist = path.join(dist, files[i]);
+      await copyFiles(pathToFiles, pathToDist);
     }
   }
 }
