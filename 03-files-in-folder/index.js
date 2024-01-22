@@ -13,9 +13,7 @@ async function getFiles() {
     fs.stat(path.join(pathToFolder, el), (err, stats) => {
       if (stats.isFile()) {
         console.log(
-          `${baseName} - ${extName.replace('.', '')} - ${(
-            stats.size / 1024
-          ).toFixed(3)}kb`,
+          `${baseName} - ${extName.replace('.', '')} - ${stats.size}b`,
         );
       }
     });
